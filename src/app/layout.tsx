@@ -15,7 +15,8 @@ export default async function RootLayout({
                                          }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const resp = await fetch('http://localhost:9999/topics', {cache: 'no-store'}) //캐시를 쓰지않겠다는 옵션
+    const resp = await fetch(process.env.NEXT_PUBLIC_API_URL + 'topics', {cache: 'no-store'}
+    ) //캐시를 쓰지않겠다는 옵션
     const topics = await resp.json()
     return (
         <html>
